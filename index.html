@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f0df" />
+    <title>Small Wins — a kinder todo list</title>
+    <meta name="description" content="A small, satisfying place for the things you want to finish today." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Small Wins — a kinder todo list" />
+    <meta property="og:description" content="A small, satisfying place for the things you want to finish today." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Small Wins — a kinder todo list" />
+    <meta name="twitter:description" content="A small, satisfying place for the things you want to finish today." />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar" aria-label="Small Wins header">
+        <a class="brand" href="/" aria-label="Small Wins home" data-testid="link-home">
+          <span class="brand-mark" aria-hidden="true"><span></span></span>
+          <span class="brand-name">small wins</span>
+        </a>
+        <div class="today-note">
+          <span class="today-dot" aria-hidden="true"></span>
+          <span id="today-label" data-testid="text-today">Today</span>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Your daily landing place</p>
+          <h1 id="page-title">Make a little room<br /><em>for what matters.</em></h1>
+          <p class="intro-copy">A short list is a kind of promise. Keep it close, make it doable, and let the rest wait.</p>
+        </section>
+
+        <section class="todo-card" aria-labelledby="list-heading">
+          <div class="card-top">
+            <div>
+              <p class="card-kicker">The list</p>
+              <h2 id="list-heading">For today</h2>
+            </div>
+            <div class="progress-wrap" aria-label="Completion progress">
+              <div class="progress-copy">
+                <span id="progress-label" data-testid="text-progress">0% finished</span>
+                <span class="progress-count" id="progress-count" data-testid="text-task-count">0 of 0</span>
+              </div>
+              <div class="progress-track"><span id="progress-bar"></span></div>
+            </div>
+          </div>
+
+          <form class="add-form" id="add-form" autocomplete="off">
+            <label class="sr-only" for="task-input">What needs doing?</label>
+            <span class="input-spark" aria-hidden="true"></span>
+            <input id="task-input" name="task" maxlength="120" placeholder="What would feel good to finish?" data-testid="input-add-task" />
+            <button class="add-button" type="submit" data-testid="button-add-task">
+              <span class="add-icon" aria-hidden="true"></span>
+              <span>Add task</span>
+            </button>
+          </form>
+
+          <div class="list-toolbar">
+            <div class="filter-tabs" role="tablist" aria-label="Filter tasks">
+              <button class="filter-tab is-active" type="button" role="tab" aria-selected="true" data-filter="all" data-testid="button-filter-all">All <span class="tab-count" id="all-count">0</span></button>
+              <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="active" data-testid="button-filter-active">Active <span class="tab-count" id="active-count">0</span></button>
+              <button class="filter-tab" type="button" role="tab" aria-selected="false" data-filter="completed" data-testid="button-filter-completed">Completed <span class="tab-count" id="completed-count">0</span></button>
+            </div>
+            <span class="list-hint" id="list-hint" aria-live="polite">A little progress counts.</span>
+          </div>
+
+          <div class="task-area">
+            <ul class="task-list" id="task-list" aria-live="polite" aria-label="Your tasks"></ul>
+            <div class="empty-state" id="empty-state" hidden>
+              <div class="empty-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+              <h3 id="empty-title">Nothing here yet.</h3>
+              <p id="empty-copy">Start with one small thing. You can always add another.</p>
+              <button class="empty-action" type="button" id="empty-action" data-testid="button-empty-action">Add your first task</button>
+            </div>
+          </div>
+          
+
+          <div class="card-footer">
+            <span id="footer-message" data-testid="status-task-summary">0 tasks to go</span>
+            <div class="card-actions">
+              <button class="save-button" type="button" id="save-button" aria-label="Save tasks">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.2 4.2L19 2.8" />
+                </svg>
+                <span>Save</span>
+              </button>
+              <button class="clear-button" type="button" id="clear-completed" disabled data-testid="button-clear-completed">Clear completed</button>
+            </div>
+          </div>
+        </section>
+        
+
+        <aside class="ritual-card" aria-label="A note about your list">
+          <div class="ritual-topline"><span class="ritual-label">A small ritual</span><span class="ritual-rule"></span></div>
+          <p class="ritual-quote">“The secret of getting ahead is getting started.”</p>
+          <p class="ritual-credit">— Mark Twain</p>
+          <div class="ritual-stamp" aria-hidden="true">
+            <span class="stamp-ring"></span>
+            <span class="stamp-word">begin</span>
+            <span class="stamp-line"></span>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="app-footer">
+        <span class="footer-sun" aria-hidden="true"></span>
+        <span>Your list lives in this browser, just for you.</span>
+      </footer>
+    </div>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
